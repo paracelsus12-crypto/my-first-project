@@ -1307,3 +1307,85 @@ body {
     height: auto;
   }
 }
+/* ================= АДАПТИВНІ СТИЛІ ДЛЯ СМАРТФОНІВ ================= */
+@media (max-width: 768px) {
+  
+  /* 1. Перетворюємо бічне меню на зручну нижню панель навігації (як у додатках) */
+  #app-container {
+    flex-direction: column !important; /* Стек панелей по вертикалі */
+    height: 100vh;
+  }
+
+  #sidebar {
+    width: 100% !important;
+    height: 60px !important;
+    flex-direction: row !important; /* Кнопки стають в один ряд */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    background: #060911;
+    border-right: none !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 5px 10px !important;
+    justify-content: space-around;
+  }
+
+  /* Ховаємо логотип та профіль у мобільному меню, залишаємо лише іконки/кнопки */
+  #sidebar .logo, #sidebar .user-profile {
+    display: none !important;
+  }
+
+  #sidebar nav {
+    display: flex !important;
+    flex-direction: row !important;
+    width: 100%;
+    justify-content: space-around;
+    gap: 5px !important;
+  }
+
+  #sidebar nav button {
+    padding: 8px !important;
+    font-size: 11px !important;
+    flex-direction: column; /* Іконка над текстом */
+    gap: 4px !important;
+    background: transparent !important;
+    border: none !important;
+  }
+
+  /* 2. Коригуємо головну робочу область, щоб вона не залазила під нижню навігацію */
+  main {
+    padding: 15px 15px 80px 15px !important; /* Відступ знизу 80px */
+    overflow-y: auto !important;
+    height: calc(100vh - 60px);
+  }
+
+  /* 3. Перебудовуємо сітку (Grid) уроків та пісочниці в одну колонку */
+  .lesson-layout, .playground-layout {
+    grid-template-columns: 1fr !important; /* Замість двох колонок — одна */
+    gap: 15px !important;
+  }
+
+  /* 4. Оптимізація вбудованого редактора коду CodeMirror для тач-скрінів */
+  .CodeMirror {
+    height: 250px !important; /* Обмежуємо висоту на мобільному, щоб бачити консоль */
+    font-size: 14px !important; /* Збільшуємо шрифт для читабельності з телефону */
+  }
+
+  /* Змушуємо довгі рядки коду автоматично переноситися на новий рядок */
+  .CodeMirror-wrap .CodeMirror-scroll {
+    overflow-x: hidden !important;
+  }
+
+  /* 5. Збільшуємо розмір кнопок (Тач-таргети), щоб по них було зручно влучати пальцем */
+  .btn, .action-bar button {
+    padding: 12px 20px !important;
+    font-size: 14px !important;
+    width: 100%; /* Кнопки дій стають на всю ширину екрана */
+    text-align: center;
+  }
+  
+  .cheatsheet-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
