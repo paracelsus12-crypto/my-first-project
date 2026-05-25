@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;705&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+body {
+  font-family: var(--font-sans);
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #080c14;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+/* Theory typography rendering style overrides */
+.theory-content h3 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #4ade80; /* neon light emerald green */
+  margin-top: 1.25rem;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.025em;
+}
+
+.theory-content h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #3b82f6; /* radiant blue */
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.theory-content p {
+  color: #cbd5e1; /* slate-300 */
+  line-height: 1.65;
+  margin-bottom: 0.85rem;
+  font-size: 0.95rem;
+}
+
+.theory-content code {
+  font-family: var(--font-mono);
+  background: rgba(255, 255, 255, 0.08);
+  padding: 0.15rem 0.35rem;
+  border-radius: 0.25rem;
+  font-size: 0.85rem;
+  color: #f1f5f9;
+}
+
+.theory-content pre {
+  margin: 1rem 0;
+  background-color: #04070e;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  overflow-x: auto;
+}
+
+.theory-content pre code {
+  background: transparent !important;
+  padding: 0 !important;
+  color: #e2e8f0;
+}
+
+/* Pulsing neon status dot */
+@keyframes statusPulse {
+  0% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.7); }
+  70% { box-shadow: 0 0 0 6px rgba(74, 222, 128, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0); }
+}
+
+.animate-pulse-beacon {
+  animation: statusPulse 1.8s infinite;
+}
+
+/* Custom fade effects */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}

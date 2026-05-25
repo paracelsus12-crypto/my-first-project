@@ -1,0 +1,6 @@
+{
+  "name": "PyLearn",
+  "description": "Interactive Python learning portal featuring live in-browser code execution, structured lessons, interactive quizzes, and a playground.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
