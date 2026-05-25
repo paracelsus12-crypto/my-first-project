@@ -178,7 +178,7 @@ function initLessonEditor() {
       lineNumbers: true,
       indentUnit: 4,
       tabSize: 4,
-      lineWrapping: true,
+      lineWrapping: true, // Перенос строк включен, после него стоит запятая
       extraKeys: {
         "Ctrl-Enter": () => runActiveLessonCode()
       }
@@ -205,12 +205,18 @@ function initPlaygroundEditor() {
       lineNumbers: true,
       indentUnit: 4,
       tabSize: 4,
-      lineWrapping: true,
+      lineWrapping: true, // Перенос строк включен, после него стоит запятая
       extraKeys: {
         "Ctrl-Enter": () => runPlaygroundCode()
       }
     });
   }
+  
+  // Обновляем размер CodeMirror для Песочницы при запуске
+  setTimeout(() => {
+    if (state.playgroundEditor) state.playgroundEditor.refresh();
+  }, 100);
+}
   
   // Обновляем размер
   setTimeout(() => state.playgroundEditor.refresh(), 100);
